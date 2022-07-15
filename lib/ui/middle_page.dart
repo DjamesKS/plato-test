@@ -20,10 +20,12 @@ class MiddlePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [Color(0xffff634f), Color(0xffff9d29)],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter)
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Theme.of(context).primaryColor,
+                     Theme.of(context).primaryColorLight],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter)
         ),
         child: Center(
           child: Padding(
@@ -50,11 +52,7 @@ class MiddlePage extends StatelessWidget {
                   child: Text(
                     messages[pageIndex],
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        color: Colors.white,
-                        height: 1.7,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700),
+                    style: Theme.of(context).textTheme.bodyMedium
                   ),
                 ),
 
@@ -80,7 +78,7 @@ class MiddlePage extends StatelessWidget {
                         width: 332.0,
                         height: 54.0,
                         text: pageIndex < imageNames.length - 1 ? "Next" : "START",
-                        color: const Color(0xffff634f),
+                        color: Theme.of(context).primaryColor,
                         textColor: Colors.white
                       )
                     ),

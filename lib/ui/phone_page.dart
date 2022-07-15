@@ -20,16 +20,12 @@ class PhonePageState extends State<PhonePage> {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle defaultStyle = const TextStyle(
-        color: Color(0xff939393),
-        fontSize: 14,
-        fontWeight: FontWeight.w400
-    );
+    TextStyle defaultStyle = Theme.of(context).textTheme.labelMedium!;
     TextStyle linkStyle = const TextStyle(
-        color: Color(0xffff5f51),
-        fontSize: 14,
-        fontWeight: FontWeight.w400,
-        decoration: TextDecoration.underline
+      color: Color(0xffff5f51),
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+      decoration: TextDecoration.underline
     );
 
     return Form(
@@ -51,27 +47,23 @@ class PhonePageState extends State<PhonePage> {
                 ),
               ),
               const SizedBox(height: 15),
-              const Text(
+
+              Text(
                 "Your phone",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 26,
-                    fontWeight: FontWeight.w700),
+                style: Theme.of(context).textTheme.headlineMedium
               ),
               const SizedBox(height: 5),
-              const Text("In order to create your account we need to verify your phone number",
-                style: TextStyle(
-                    color: Color(0xff939393),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400),
+
+              Text("In order to create your account we need to verify your phone number",
+                style: defaultStyle
               ),
               const SizedBox(height: 38),
 
-              const CustomFormField(
+              CustomFormField(
                 hint: "Phone number",
                 inputType: TextInputType.phone,
-                borderColor: Color(0xffff9d29),
-                validator: Validators.validateIfNotEmpty,
+                borderColor: Theme.of(context).primaryColorLight,
+                validator: Validators.validateIfNotEmpty
               ),
 
               const SizedBox(height: 20),
@@ -89,25 +81,25 @@ class PhonePageState extends State<PhonePage> {
                           isAccepted = newValue!;
                         });
                       },
-                      side: const BorderSide(color: Color(0xffff9d29)),
-                      activeColor: const Color(0xffff9d29)
+                      side: BorderSide(color: Theme.of(context).primaryColorLight),
+                      activeColor: Theme.of(context).primaryColorLight
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
                     child: RichText(
-                        text: TextSpan(
-                            children: [
-                              TextSpan(style: defaultStyle, text: "I accept "),
-                              TextSpan(
-                                  style: linkStyle,
-                                  text: "Plato Labs Terms and Conditions",
-                                  recognizer: TapGestureRecognizer()..onTap = () {
-                                    // show Plato Labs Terms and Conditions
-                                  }
-                              )
-                            ]
-                        )
+                      text: TextSpan(
+                        children: [
+                          TextSpan(style: defaultStyle, text: "I accept "),
+                          TextSpan(
+                            style: linkStyle,
+                            text: "Plato Labs Terms and Conditions",
+                            recognizer: TapGestureRecognizer()..onTap = () {
+                              // show Plato Labs Terms and Conditions
+                            }
+                          )
+                        ]
+                      )
                     ),
                   ),
                 ],
@@ -129,14 +121,14 @@ class PhonePageState extends State<PhonePage> {
                             MaterialPageRoute(builder: (context) =>
                               VerificationPage(isByPhone: true, nextPage: () {return const SignUpPage();})),
                           );
-                      }
+                        }
                       }
                     },
-                    child: const RoundedButton(
+                    child: RoundedButton(
                       width: 332.0,
                       height: 54.0,
                       text: "Next",
-                      color: Color(0xffff9d29),
+                      color: Theme.of(context).primaryColorLight,
                       textColor: Colors.white
                     )
                   ),

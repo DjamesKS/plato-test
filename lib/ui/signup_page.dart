@@ -38,19 +38,16 @@ class SignUpPageState extends State<SignUpPage> {
               ),
               const SizedBox(height: 15),
 
-              const Text(
+              Text(
                 "Sign up",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 26,
-                    fontWeight: FontWeight.w700),
+                style: Theme.of(context).textTheme.headlineMedium
               ),
               const SizedBox(height: 23),
 
-              const CustomFormField(
+              CustomFormField(
                 iconName: "account_circle",
                 hint: "Name",
-                borderColor: Color(0xffff9d29),
+                borderColor: Theme.of(context).primaryColorLight,
                 validator: Validators.validateIfNotEmpty,
               ),
 
@@ -87,11 +84,11 @@ class SignUpPageState extends State<SignUpPage> {
                         );
                       }
                     },
-                    child: const RoundedButton(
+                    child: RoundedButton(
                       width: 332.0,
                       height: 54.0,
                       text: "Next",
-                      color: Color(0xffff9d29),
+                      color: Theme.of(context).primaryColorLight,
                       textColor: Colors.white
                     ),
                   ),

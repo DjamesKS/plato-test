@@ -10,10 +10,12 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [Color(0xffff634f), Color(0xffff9d29)],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter)
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Theme.of(context).primaryColor,
+                     Theme.of(context).primaryColorLight],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter)
         ),
         child: Center(
           child: Column(
@@ -28,23 +30,17 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 35),
-              const Text(
+              Text(
                 "Welcome to Plato!",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 26,
-                    fontWeight: FontWeight.w700),
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
               const SizedBox(height: 15),
-              const SizedBox(
+              SizedBox(
                 width: 285,
                 child: Text(
                   "Your registration has been successful, it's time to start using Plato",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               ),
               const SizedBox(height: 15),
@@ -55,11 +51,11 @@ class WelcomePage extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => const MiddlePage(pageIndex: 0)),
                   );
                 },
-                child: const RoundedButton(
+                child: RoundedButton(
                   width: 188.0,
                   height: 54.0,
                   text: "Start",
-                  color: Color(0xffff634f),
+                  color: Theme.of(context).primaryColor,
                   textColor: Colors.white
                 )
               )

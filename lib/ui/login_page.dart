@@ -12,10 +12,12 @@ class LoginPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(colors: [Color(0xffff634f), Color(0xffff9d29)],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter)
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Theme.of(context).primaryColor,
+                         Theme.of(context).primaryColorLight],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter)
             ),
           ),
 
@@ -28,8 +30,8 @@ class LoginPage extends StatelessWidget {
                   width: 37,
                   height: 55,
                   decoration: const BoxDecoration(
-                      image: DecorationImage(image: AssetImage("assets/images/logo_small.png"),
-                          fit: BoxFit.contain)
+                    image: DecorationImage(image: AssetImage("assets/images/logo_small.png"),
+                        fit: BoxFit.contain)
                   ),
                 ),
                 const SizedBox(width: 15),
@@ -37,8 +39,8 @@ class LoginPage extends StatelessWidget {
                   width: 107,
                   height: 23,
                   decoration: const BoxDecoration(
-                      image: DecorationImage(image: AssetImage("assets/images/plato.png"),
-                          fit: BoxFit.contain)
+                    image: DecorationImage(image: AssetImage("assets/images/plato.png"),
+                        fit: BoxFit.contain)
                   ),
                 )
               ],
@@ -52,9 +54,9 @@ class LoginPage extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 2 / 3,
               decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0),
-                      topRight: Radius.circular(40.0)),
+                color: Colors.white,
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(40.0),
+                    topRight: Radius.circular(40.0)),
               ),
 
               child: Padding(
@@ -68,23 +70,19 @@ class LoginPage extends StatelessWidget {
                           MaterialPageRoute(builder: (context) => const PhonePage()),
                         );
                       },
-                      child: const RoundedButton(
+                      child: RoundedButton(
                         width: 274.0,
                         height: 49.0,
                         text: "Sign up",
-                        color: Color(0xffff9d29),
+                        color: Theme.of(context).primaryColorLight,
                         textColor: Colors.white
                       ),
                     ),
 
                     const SizedBox(height: 10.0),
 
-                    const Text("Already have an account?",
-                      style: TextStyle(
-                        color: Color(0xff939393),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400),
-                    ),
+                    Text("Already have an account?",
+                        style: Theme.of(context).textTheme.labelMedium),
 
                     const SizedBox(height: 10.0),
 
@@ -100,12 +98,12 @@ class LoginPage extends StatelessWidget {
                         height: 49.0,
                         text: "Login",
                         color: Colors.white,
-                        textColor: const Color(0xffff9d29),
-                        border: Border.all(color: const Color(0xffff9d29), width: 3)
+                        textColor: Theme.of(context).primaryColorLight,
+                        border: Border.all(color: Theme.of(context).primaryColorLight, width: 3)
                       ),
                     ),
 
-                    const Expanded(
+                    Expanded(
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           child: SizedBox(
@@ -114,11 +112,8 @@ class LoginPage extends StatelessWidget {
                             child: Text(
                               "Lorem ipsum dolor sit amet, consecte. "
                                   "Lorem ipsum dolor sit amet, consecte adipiscing.",
-                              style: TextStyle(
-                                color: Color(0xff939393),
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500),
-                                textAlign: TextAlign.center,
+                              style: Theme.of(context).textTheme.labelSmall,
+                              textAlign: TextAlign.center,
                             ),
                           ),
                         )

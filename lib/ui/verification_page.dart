@@ -49,16 +49,12 @@ class VerificationPageState extends State<VerificationPage> {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle defaultStyle = const TextStyle(
-        color: Color(0xff939393),
-        fontSize: 14,
-        fontWeight: FontWeight.w400
-    );
+    TextStyle defaultStyle = Theme.of(context).textTheme.labelMedium!;
     TextStyle linkStyle = const TextStyle(
-        color: Color(0xffff5f51),
-        fontSize: 14,
-        fontWeight: FontWeight.w400,
-        decoration: TextDecoration.underline
+      color: Color(0xffff5f51),
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+      decoration: TextDecoration.underline
     );
 
     return Form(
@@ -80,24 +76,20 @@ class VerificationPageState extends State<VerificationPage> {
                 ),
               ),
               const SizedBox(height: 15),
+
               Text(_caption,
-                style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 26,
-                    fontWeight: FontWeight.w700),
+                style: Theme.of(context).textTheme.headlineMedium
               ),
               const SizedBox(height: 5),
+
               Text(_text,
-                style: const TextStyle(
-                    color: Color(0xff939393),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400),
+                style: defaultStyle
               ),
               const SizedBox(height: 38),
 
               CustomFormField(
                 hint: _hint,
-                borderColor: const Color(0xffff9d29),
+                borderColor: Theme.of(context).primaryColorLight,
                 validator: Validators.validateIfNotEmpty,
               ),
 
@@ -138,11 +130,11 @@ class VerificationPageState extends State<VerificationPage> {
                         }
                       }
                     },
-                    child: const RoundedButton(
+                    child: RoundedButton(
                       width: 332.0,
                       height: 54.0,
                       text: "Next",
-                      color: Color(0xffff9d29),
+                      color: Theme.of(context).primaryColorLight,
                       textColor: Colors.white
                     ),
                   ),
